@@ -1,5 +1,11 @@
+//variables organicas
+$organica: true;
 $primary-color:#f75940;
 $secondary-color:#212529;
 $background-color:#f0f3f1;
 $font-family: 'Hind',
 sans-serif;
+@if($organica) {
+    $primary-color: #f39e91;
+    $secondary-color: #5e6d7c;
+}
