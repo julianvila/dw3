@@ -1,0 +1,31 @@
+ul li {
+    display: inline-block;
+    a {
+        text-decoration: none;
+        padding: 10px;
+        &:hover {
+            color: $primary-colord;
+        }
+    }
+    &:hover::before,
+    &:hover::after {
+        width: 100%;
+    }
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: $primary-color;
+        width: 0;
+        transition: width 0.5s;
+        margin: 5px auto;
+    }
+    &::before {
+        margin: 5px auto 5px 0;
+        transition: width 0.5s 0.5s;
+    }
+    &::after {
+        margin: 5px 0 5px auto
+    }
+}
