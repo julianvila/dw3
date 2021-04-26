@@ -1,0 +1,75 @@
+//regla 1;
+
+$lados:'left','right';
+
+@each $lado in $lados {
+    .no-margin-#{$lado} {
+        margin-#{$lado}: 0;
+    }
+}
+
+//regla 2;
+
+$lados: '1','2','3';
+
+@each $lado in $lados {
+    .col-#{$lado} {
+        display: grid;
+        grid-template-columns:repeat(#{$lado}, 1fr);
+    }
+}
+
+
+//regla 3;
+
+$ColorUno: rgba(255,200,0,1);
+$ColorDos: rgba(0,150,0,1);
+
+@mixin boton-general($col){
+    color: $col;
+    background: transparent;
+    border: 1px solid $col;
+    transition: background 0.2;
+    &:hover{
+        color: white;
+        background: $col;
+    }
+}
+
+.btn-primary{
+   @include boton-general($ColorUno); 
+}
+.btn-secondary{
+   @include boton-general($ColorDos); 
+}
+
+
+//regla 4;
+
+$lados: 'top','bottom','left','right';
+$margins: ( 
+    0: "0", 
+    1: "1rem", 
+    2: "2rem");
+
+@each $lado in $lados {
+    @each $margin,
+    $value in $margins {
+        .m-#{$lado}-#{$margin} {
+            margin-#{$lado}: #{$value};
+        }
+    }
+}
+
+//regla 4 con 2 arrays pero con "0rem";
+
+$lados: 'top','bottom','left';
+$margins: '0','1','2';
+
+@each $lado in $lados {
+    @each $margin in $margins {
+        .m-#{$lado}-#{$margin} {
+            margin-#{$lado}: #{$margin}rem;
+        }
+    }
+}
